@@ -1,0 +1,26 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2017
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Test Leap 2", "Test Leap 2.csproj", "{49095EB7-FA08-961C-629C-09BB416006C2}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Test Leap 2.Editor", "Test Leap 2.Editor.csproj", "{77F4E09C-3D0C-629B-D02C-B7AAEDE3CACB}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{49095EB7-FA08-961C-629C-09BB416006C2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{49095EB7-FA08-961C-629C-09BB416006C2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{49095EB7-FA08-961C-629C-09BB416006C2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{49095EB7-FA08-961C-629C-09BB416006C2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{77F4E09C-3D0C-629B-D02C-B7AAEDE3CACB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{77F4E09C-3D0C-629B-D02C-B7AAEDE3CACB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{77F4E09C-3D0C-629B-D02C-B7AAEDE3CACB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{77F4E09C-3D0C-629B-D02C-B7AAEDE3CACB}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
