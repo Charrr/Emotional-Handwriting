@@ -224,8 +224,7 @@ namespace Leap.Unity.DetectionExamples
                 _mesh = new Mesh();
                 _mesh.name = "Line Mesh";
                 _mesh.MarkDynamic();
-
-                //GameObject virtualCanvas = GameObject.Find("Virtual Canvas");   
+                
                 GameObject lineObj = new GameObject("Line Object");
                 lineObj.transform.parent = GameObject.Find("Virtual Canvas").transform;
                 lineObj.transform.position = Vector3.zero;
@@ -233,7 +232,6 @@ namespace Leap.Unity.DetectionExamples
                 lineObj.transform.localScale = Vector3.one;
                 lineObj.AddComponent<MeshFilter>().mesh = _mesh;
                 lineObj.AddComponent<MeshRenderer>().sharedMaterial = _parent._material;
-                //lineObj.AddComponent<Erase>();
                 lineObj.AddComponent<Rigidbody>().useGravity = false;
                 lineObj.AddComponent<MeshCollider>();
 
@@ -249,12 +247,6 @@ namespace Leap.Unity.DetectionExamples
 
                 shouldAdd |= _vertices.Count == 0;
                 shouldAdd |= Vector3.Distance(_prevRing0, _smoothedPosition.value) >= _parent._minSegmentLength;        // 平滑程度
-
-                /*
-                float dis = Vector3.Distance(_prevRing0, _smoothedPosition.value);  
-                float ratio = dis / _parent._minSegmentLength;
-                print(1/ratio);
-                */
 
                 if (shouldAdd)
                 {
