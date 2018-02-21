@@ -8,6 +8,7 @@
  ******************************************************************************/
 
 using UnityEngine;
+using UnityEngine.UI;
 using System.Collections.Generic;
 
 
@@ -16,21 +17,11 @@ namespace Leap.Unity.DetectionExamples
     
     public class PinchDraw : MonoBehaviour
     {
+        public Text textWhichStyle;
 
-        public const int STYLE_NUMBER = 8;
+        public const int STYLE_TOTAL_NUMBER = 8;
 
-        //public struct EmotionStyle
-        //{
-        //    public float radius;
-        //    public float resolution;
-        //    public float strength;
-        //    //material material;
-        //}
-
-        //public EmotionStyle emoAfraid, emoAmused;
-        //    emoAfraid.radius = 0.005f;
-
-        float[,] styleValues = new float[STYLE_NUMBER, 3]{
+        float[,] styleValues = new float[STYLE_TOTAL_NUMBER, 3]{
         {0.008f, 0.008f, -1.5f},    // 01_afraid
         {0.005f, 0.005f, 0.5f },    // 02_amorous
         {0.002f, 0.005f, 1.3f },    // 03_angry
@@ -42,8 +33,7 @@ namespace Leap.Unity.DetectionExamples
         {0.008f, 0.03f,  0.4f }     // 08_surprised
     };
 
-        string[] nameStyles = { "01_afraid", "02_amorous", "03_angry", "04_disgusted",
-    "05_happy", "06_sad", "07_serious", "08_surprised"};
+        string[] nameStyles = { "01_afraid", "02_amorous", "03_angry", "04_disgusted", "05_happy", "06_sad", "07_serious", "08_surprised"};
 
         Material[] materialStyles = new Material[8];
 
@@ -73,9 +63,7 @@ namespace Leap.Unity.DetectionExamples
         [Tooltip("Simulate the property of ink. If > 0, the faster your finger moves, the thicker the strikes get. If < 0, the thinner they get.")]
         [SerializeField]
         private float _strength = 0.0f;
-
-        //[SerializeField]
-        //private EmotionStyle _emotionStyle;
+        
 
         [SerializeField]
         private int _emotionIndex = 0;
@@ -111,7 +99,7 @@ namespace Leap.Unity.DetectionExamples
         {
 
             // If one emotion style is chosen. 如果输入的数字对应一个style
-            if (_emotionIndex >= 1 && _emotionIndex <= STYLE_NUMBER)
+            if (_emotionIndex >= 1 && _emotionIndex <= STYLE_TOTAL_NUMBER)
             {
                 _drawRadius = styleValues[_emotionIndex - 1, 0];
                 _minSegmentLength = styleValues[_emotionIndex - 1, 1];
@@ -131,7 +119,7 @@ namespace Leap.Unity.DetectionExamples
         void Awake()
         {
             // Load the materials by name. 读取assets里的材料
-            for (int i = 0; i < STYLE_NUMBER; i++)
+            for (int i = 0; i < STYLE_TOTAL_NUMBER; i++)
             {
                 materialStyles[i] = Resources.Load("Materials/" + nameStyles[i], typeof(Material)) as Material;
             }
@@ -148,7 +136,8 @@ namespace Leap.Unity.DetectionExamples
         {
             /* USED FOR PRINT TESTS */
 
-            print(STYLE_NUMBER);
+            //print(STYLE_TOTAL_NUMBER);
+            textWhichStyle.text = "Current style: default.";
 
             _drawStates = new DrawState[_pinchDetectors.Length];
             for (int i = 0; i < _pinchDetectors.Length; i++)
@@ -185,9 +174,10 @@ namespace Leap.Unity.DetectionExamples
         public void chooseStyle(int indexOfStyle)
         {
             _emotionIndex = indexOfStyle;
+            print(nameStyles[indexOfStyle-1]);
+            textWhichStyle.text = "Current style: " + nameStyles[indexOfStyle-1] + ".";
             OnValidate();   // to update the parameters.
         }
-
 
 
 

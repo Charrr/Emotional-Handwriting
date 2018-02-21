@@ -94,7 +94,6 @@
     <Compile Include="Assets\Button Builder\Scripts\HSVTextureGen.cs" />
     <Compile Include="Assets\Button Builder\Scripts\LeapToggleGroup.cs" />
     <Compile Include="Assets\Button Builder\Scripts\ToggleConfigurer.cs" />
-    <Compile Include="Assets\EmotionStyle.cs" />
     <Compile Include="Assets\Erase.cs" />
     <Compile Include="Assets\LeapMotion\Core\Examples\Attachment Hands\SpawnAttachmentPrefabs.cs" />
     <Compile Include="Assets\LeapMotion\Core\Scripts\Algorithms\SlidingMax.cs" />
@@ -236,7 +235,6 @@
     <Compile Include="Assets\LeapMotion\Modules\DetectionExamples\Scripts\MengerSponge.cs" />
     <Compile Include="Assets\LeapMotion\Modules\DetectionExamples\Scripts\PinchDraw.cs" />
     <Compile Include="Assets\LeapMotion\Modules\DetectionExamples\Scripts\SpawnBalls.cs" />
-    <Compile Include="Assets\LeapMotion\Modules\DetectionExamples\Scripts\emo_afraid.cs" />
     <Compile Include="Assets\LeapMotion\Modules\GraphicRenderer\Examples\Scripts\ExampleArrayController.cs" />
     <Compile Include="Assets\LeapMotion\Modules\GraphicRenderer\Scripts\EditTimeApis\LeapGraphicEditorApi.cs" />
     <Compile Include="Assets\LeapMotion\Modules\GraphicRenderer\Scripts\EditTimeApis\LeapGraphicGroupEditorApi.cs" />
@@ -367,7 +365,6 @@
     <Compile Include="Assets\LeapMotion\Modules\UIInput\Scripts\Utilities\ToggleToggler.cs" />
     <Compile Include="Assets\LeapMotion\Modules\VRVisualizer\ScenesResources\Scripts\VisualizerControls.cs" />
     <Compile Include="Assets\LeapMotion\Modules\VRVisualizer\ScenesResources\Scripts\VisualizerManager.cs" />
-    <Compile Include="Assets\StyleChoose.cs" />
     <Compile Include="Assets\Test.cs" />
   </ItemGroup>
   <ItemGroup>
