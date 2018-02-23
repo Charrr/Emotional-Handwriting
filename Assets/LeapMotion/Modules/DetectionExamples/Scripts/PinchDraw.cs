@@ -21,9 +21,9 @@ namespace Leap.Unity.DetectionExamples
 
         public const int STYLE_TOTAL_NUMBER = 8;
 
-        float[,] styleValues = new float[STYLE_TOTAL_NUMBER, 3]{
+        float[,] styleValues = new float[STYLE_TOTAL_NUMBER, 3]{    // radius, minLength, strength
         {0.008f, 0.008f, -1.5f},    // 01_afraid
-        {0.005f, 0.005f, 0.5f },    // 02_amorous
+        {0.005f, 0.003f, 0.5f },    // 02_amorous
         {0.002f, 0.005f, 1.3f },    // 03_angry
         {0.01f, 0.005f, -1.0f },    // 04_disgusted
         
@@ -234,7 +234,8 @@ namespace Leap.Unity.DetectionExamples
                 lineObj.AddComponent<MeshRenderer>().sharedMaterial = _parent._material;
                 lineObj.AddComponent<Rigidbody>().useGravity = false;
                 lineObj.AddComponent<MeshCollider>();
-
+                //lineObj.transform.localScale = new Vector3(2.0f, 1.0f, 1.0f);
+                //lineObj.transform.Translate(2.0f, 1.0f, 1.0f);
 
                 return lineObj;
             }
