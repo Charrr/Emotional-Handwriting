@@ -124,7 +124,7 @@ namespace Leap.Unity.DetectionExamples
                 materialStyles[i] = Resources.Load("Materials/" + nameStyles[i], typeof(Material)) as Material;
             }
             // Assign __non to be the default material. 默认的材料是__non
-            _material = Resources.Load("Materials/__non", typeof(Material)) as Material;
+            //_material = Resources.Load("Materials/__non", typeof(Material)) as Material;
 
             if (_pinchDetectors.Length == 0)
             {
