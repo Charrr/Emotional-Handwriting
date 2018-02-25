@@ -22,20 +22,54 @@ namespace Leap.Unity.DetectionExamples
         public const int STYLE_TOTAL_NUMBER = 8;
 
         float[,] styleValues = new float[STYLE_TOTAL_NUMBER, 3]{    // radius, minLength, strength
-        {0.008f, 0.008f, -1.5f},    // 01_afraid
-        {0.005f, 0.003f, 0.5f },    // 02_amorous
-        {0.002f, 0.005f, 1.3f },    // 03_angry
-        {0.01f, 0.005f, -1.0f },    // 04_disgusted
-        
-        {0.004f, 0.005f, 0.5f },    // 05_happy
-        {0.005f, 0.005f, -0.8f},    // 06_sad
-        {0.005f, 0.01f,  0.0f },    // 07_serious
-        {0.008f, 0.03f,  0.4f }     // 08_surprised
-    };
+            {0.008f, 0.008f, -1.5f},    // 01_afraid
+            {0.005f, 0.003f, 0.5f },    // 02_amorous
+            {0.002f, 0.005f, 1.3f },    // 03_angry
+            {0.01f, 0.005f, -1.0f },    // 04_disgusted
 
-        string[] nameStyles = { "01_afraid", "02_amorous", "03_angry", "04_disgusted", "05_happy", "06_sad", "07_serious", "08_surprised"};
+            {0.004f, 0.005f, 0.5f },    // 05_happy
+            {0.005f, 0.005f, -0.8f},    // 06_sad
+            {0.005f, 0.01f,  0.0f },    // 07_serious
+            {0.008f, 0.03f,  0.4f }     // 08_surprised
+        };
 
-        Material[] materialStyles = new Material[8];
+        string[] nameStyles = { "01_afraid", "02_amorous", "03_angry", "04_disgusted", "05_happy", "06_sad", "07_serious", "08_surprised" };
+
+
+        /* DEMO VERSION STARTS HERE */
+
+        //    public const int STYLE_TOTAL_NUMBER = 16;
+
+        //    float[,] styleValues = new float[16, 3]{
+        //    {0.008f, 0.008f, -1.5f},
+        //    {0.005f, 0.005f, 0.5f },
+        //    {0.003f, 0.005f, 0.8f },
+        //    {0.002f, 0.005f, 1.3f },
+
+        //    {0.007f, 0.005f, 0.0f },
+        //    {0.005f, 0.005f, -0.5f },
+        //    {0.01f, 0.005f, -1.0f },
+        //    {0.006f, 0.005f, -0.65f },
+
+        //    {0.002f, 0.005f, 1.2f },
+        //    {0.004f, 0.005f, 0.5f },
+        //    {0.005f, 0.005f, -0.5f },
+        //    {0.005f, 0.005f, -0.8f },
+
+        //    {0.007f, 0.01f, 0.3f },
+        //    {0.005f, 0.01f, 0.0f },
+        //    {0.008f, 0.03f, 0.4f },
+        //    {0.012f, 0.005f, -0.8f }
+        //};
+
+        //    string[] nameStyles = { "_afraid", "_amorous", "_amused", "_angry",
+        //"_bored", "_depressed", "_disgusted", "_embarrassed",
+        //"_excited", "_happy", "_relaxed", "_sad",
+        //"_selfconfident", "_serious", "_tense", "_tired"};
+
+        /* DEMO VERSION ENDS HERE */
+
+        Material[] materialStyles = new Material[STYLE_TOTAL_NUMBER];
 
 
         [Tooltip("Each pinch detector can draw one line at a time.")]
