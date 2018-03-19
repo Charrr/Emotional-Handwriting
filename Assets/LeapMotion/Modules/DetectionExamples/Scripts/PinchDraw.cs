@@ -21,20 +21,33 @@ namespace Leap.Unity.DetectionExamples
 
         public const int STYLE_TOTAL_NUMBER = 8;
 
-        float[,] styleValues = new float[STYLE_TOTAL_NUMBER, 3]{    // radius, minLength, strength
-            {0.008f, 0.008f, -1.5f},    // 01_afraid
-            {0.005f, 0.003f, 0.5f },    // 02_amorous
-            {0.002f, 0.005f, 1.3f },    // 03_angry
-            {0.01f, 0.005f, -1.0f },    // 04_disgusted
-
-            {0.004f, 0.005f, 0.5f },    // 05_happy
-            {0.005f, 0.005f, -0.8f},    // 06_sad
-            {0.005f, 0.01f,  0.0f },    // 07_serious
-            {0.008f, 0.03f,  0.4f }     // 08_surprised
-        };
-
         string[] nameStyles = { "01_afraid", "02_amorous", "03_angry", "04_disgusted", "05_happy", "06_sad", "07_serious", "08_surprised" };
 
+        float[,] styleValues = new float[STYLE_TOTAL_NUMBER, 3]{    // radius, minLength, strength
+            {0.00263f,  0.0186f,    -0.299f },    // 01_afraid
+            {0.00532f,  0.00859f,   0.501f  },    // 02_amorous
+            {0.00504f,  0.0138f,    0.357f  },    // 03_angry
+            {0.00315f,  0.0169f,    -0.203f },    // 04_disgusted
+
+            {0.00475f,  0.00806f,   0.671f  },    // 05_happy
+            {0.00291f,  0.0206f,    -0.581f },    // 06_sad
+            {0.00498f,  0.0108f,    0.536f },    // 07_serious
+            {0.00368f,  0.0139f,    0.215f }     // 08_surprised
+        };
+
+        /* FEBRUARY VERSION STARTS HERE */
+
+        //float[,] stylevalues = new float[style_total_number, 3]{    // radius, minlength, strength
+        //    {0.008f, 0.008f, -1.5f},    // 01_afraid
+        //    {0.005f, 0.003f, 0.5f },    // 02_amorous
+        //    {0.002f, 0.005f, 1.3f },    // 03_angry
+        //    {0.01f, 0.005f, -1.0f },    // 04_disgusted
+
+        //    {0.004f, 0.005f, 0.5f },    // 05_happy
+        //    {0.005f, 0.005f, -0.8f},    // 06_sad
+        //    {0.005f, 0.01f,  0.0f },    // 07_serious
+        //    {0.008f, 0.03f,  0.4f }     // 08_surprised
+        //};
 
         /* DEMO VERSION STARTS HERE */
 
