@@ -1,4 +1,4 @@
 sceneSetups:
-- path: Assets/PinchDraw_Desktop after-demo.unity
+- path: Assets/Scenes/PinchDraw_Desktop after-demo.unity
   isLoaded: 1
   isActive: 1

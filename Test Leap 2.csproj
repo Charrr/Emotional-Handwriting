@@ -94,7 +94,6 @@
     <Compile Include="Assets\Button Builder\Scripts\HSVTextureGen.cs" />
     <Compile Include="Assets\Button Builder\Scripts\LeapToggleGroup.cs" />
     <Compile Include="Assets\Button Builder\Scripts\ToggleConfigurer.cs" />
-    <Compile Include="Assets\Erase.cs" />
     <Compile Include="Assets\LeapMotion\Core\Examples\Attachment Hands\SpawnAttachmentPrefabs.cs" />
     <Compile Include="Assets\LeapMotion\Core\Scripts\Algorithms\SlidingMax.cs" />
     <Compile Include="Assets\LeapMotion\Core\Scripts\Algorithms\SmoothedFloat.cs" />
@@ -365,6 +364,8 @@
     <Compile Include="Assets\LeapMotion\Modules\UIInput\Scripts\Utilities\ToggleToggler.cs" />
     <Compile Include="Assets\LeapMotion\Modules\VRVisualizer\ScenesResources\Scripts\VisualizerControls.cs" />
     <Compile Include="Assets\LeapMotion\Modules\VRVisualizer\ScenesResources\Scripts\VisualizerManager.cs" />
+    <Compile Include="Assets\Scripts\Erase.cs" />
+    <Compile Include="Assets\Scripts\Screenshot.cs" />
     <Compile Include="Assets\Test.cs" />
   </ItemGroup>
   <ItemGroup>
