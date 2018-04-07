@@ -1,6 +1,8 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.IO;
 using UnityEngine;
+
 
 namespace Leap.Unity.DetectionExamples
 {
@@ -37,7 +39,8 @@ namespace Leap.Unity.DetectionExamples
         // Update is called once per frame
         void Update()
         {
-            
+            if (Input.GetKeyDown("backspace"))  EraseReset();
+            if (Input.GetKeyDown("delete"))     EraseUndo();
         }
 
         public void EraseUndo()
@@ -47,14 +50,14 @@ namespace Leap.Unity.DetectionExamples
             Debug.Log("Child count = " + count);
             //Hand hand = GetLeapHand();
             //if (_eraseHands.Handedness == hand.Handedness) Debug.Log("..........");
-            if (count>0) Destroy(this.gameObject.transform.GetChild(count-1).gameObject);
+            if (count > 0) Destroy(this.gameObject.transform.GetChild(count-1).gameObject);
         }
 
         public void EraseReset()
         {
             int count = this.gameObject.transform.childCount;
             Debug.Log("Child count = " + count);
-            if(count > 0)
+            if (count > 0)
             {
                 for(int i = 0; i < count; i++) Destroy(this.gameObject.transform.GetChild(i).gameObject);
             }

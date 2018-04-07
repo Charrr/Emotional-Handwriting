@@ -9,6 +9,7 @@
 
 using UnityEngine;
 using UnityEngine.UI;
+using System.IO;
 using System.Collections.Generic;
 
 
@@ -92,24 +93,24 @@ namespace Leap.Unity.DetectionExamples
         [SerializeField]
         private Material _material;
 
-        [SerializeField]
+        //[SerializeField]
         private Color _drawColor = Color.white;
 
-        [SerializeField]
+        //[SerializeField]
         private float _smoothingDelay = 0.01f;
 
         [SerializeField]
-        private float _drawRadius = 0.002f;
+        private float _drawWeight = 0.002f;
 
-        [SerializeField]
+        //[SerializeField]
         private int _drawResolution = 8;
 
         [SerializeField]
-        private float _minSegmentLength = 0.005f;
+        private float _drawSmoothness = 0.005f;
 
         [Tooltip("Simulate the property of ink. If > 0, the faster your finger moves, the thicker the strikes get. If < 0, the thinner they get.")]
         [SerializeField]
-        private float _strength = 0.0f;
+        private float _drawTipOfStroke = 0.0f;
         
 
         [SerializeField]
@@ -133,11 +134,11 @@ namespace Leap.Unity.DetectionExamples
         {
             get
             {
-                return _drawRadius;
+                return _drawWeight;
             }
             set
             {
-                _drawRadius = value;
+                _drawWeight = value;
             }
         }
 
@@ -148,16 +149,16 @@ namespace Leap.Unity.DetectionExamples
             // If one emotion style is chosen. 如果输入的数字对应一个style
             if (_emotionIndex >= 1 && _emotionIndex <= STYLE_TOTAL_NUMBER)
             {
-                _drawRadius = styleValues[_emotionIndex - 1, 0];
-                _minSegmentLength = styleValues[_emotionIndex - 1, 1];
-                _strength = styleValues[_emotionIndex - 1, 2];
+                _drawWeight = styleValues[_emotionIndex - 1, 0];
+                _drawSmoothness = styleValues[_emotionIndex - 1, 1];
+                _drawTipOfStroke = styleValues[_emotionIndex - 1, 2];
                 _material = materialStyles[_emotionIndex - 1];
             }
             else // Any other value would enable users to customise the parameters. 其他值情况下用户可以自主调节参数
             {
-                _drawRadius = Mathf.Max(0, _drawRadius);
+                _drawWeight = Mathf.Max(0, _drawWeight);
                 _drawResolution = Mathf.Clamp(_drawResolution, 3, 24);
-                _minSegmentLength = Mathf.Max(0, _minSegmentLength);
+                _drawSmoothness = Mathf.Max(0, _drawSmoothness);
             }
 
 
@@ -215,7 +216,20 @@ namespace Leap.Unity.DetectionExamples
                     drawState.UpdateLine(detector.Position);
                 }
             }
+
+
+
+            // press number keys to choose a style.
+            if (Input.GetKeyDown("1")) chooseStyle(1);
+            if (Input.GetKeyDown("2")) chooseStyle(2);
+            if (Input.GetKeyDown("3")) chooseStyle(3);
+            if (Input.GetKeyDown("4")) chooseStyle(4);
+            if (Input.GetKeyDown("5")) chooseStyle(5);
+            if (Input.GetKeyDown("6")) chooseStyle(6);
+            if (Input.GetKeyDown("7")) chooseStyle(7);
+            if (Input.GetKeyDown("8")) chooseStyle(8);
         }
+
 
         // when user touches a button to choose a style.
         public void chooseStyle(int indexOfStyle)
@@ -228,8 +242,11 @@ namespace Leap.Unity.DetectionExamples
 
 
 
-        /* CLASS DRAWSTATE */
 
+
+        /*****************************************************/
+        /*************      CLASS DRAWSTATE      *************/
+        /*****************************************************/
 
         private class DrawState
         {
@@ -294,7 +311,7 @@ namespace Leap.Unity.DetectionExamples
                 bool shouldAdd = false;
 
                 shouldAdd |= _vertices.Count == 0;
-                shouldAdd |= Vector3.Distance(_prevRing0, _smoothedPosition.value) >= _parent._minSegmentLength;        // 平滑程度
+                shouldAdd |= Vector3.Distance(_prevRing0, _smoothedPosition.value) >= _parent._drawSmoothness;        // 平滑程度
 
                 if (shouldAdd)
                 {
@@ -322,7 +339,7 @@ namespace Leap.Unity.DetectionExamples
             {
 
                 float dis = Vector3.Distance(_prevRing0, _smoothedPosition.value);  // dis为每一次新的描点到上一次的距离
-                float ratio = dis / _parent._minSegmentLength;
+                float ratio = dis / _parent._drawSmoothness;
 
                 _rings++;
 
@@ -389,7 +406,7 @@ namespace Leap.Unity.DetectionExamples
                                     _prevRing0,
                                     ringPosition - _prevRing1,
                                     _prevNormal0,
-                                    Mathf.Clamp((Mathf.Pow(ratio, _parent._strength)), 0.1f, 10.0f));
+                                    Mathf.Clamp((Mathf.Pow(ratio, _parent._drawTipOfStroke)), 0.1f, 10.0f));
                 }
 
                 _prevRing1 = _prevRing0;
@@ -435,7 +452,7 @@ namespace Leap.Unity.DetectionExamples
                 {
                     float angle = 360.0f * (i / (float)(_parent._drawResolution));
                     Quaternion rotator = Quaternion.AngleAxis(angle, direction);
-                    Vector3 ringSpoke = rotator * normal * _parent._drawRadius * radiusScale;
+                    Vector3 ringSpoke = rotator * normal * _parent._drawWeight * radiusScale;
                     _vertices[offset + i] = ringPosition + ringSpoke;
                 }
             }

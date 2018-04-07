@@ -7,7 +7,7 @@ using UnityEngine.UI;
 public class Screenshot : MonoBehaviour {
 
     public Text textScreenshot;
-    public const float shotRate = 3.0f;         // One shot every xx second(s).
+    public float shotRate = 1.0f;         // One shot every xx second(s).
     public int countBegin = 10000;
     public int count = 0;
     public bool shouldStop = false;
@@ -53,7 +53,7 @@ public class Screenshot : MonoBehaviour {
 
     // Use this for initialization
     void Start () {
-        Application.CaptureScreenshot("screenshotStart.png", 1);
+        //Application.CaptureScreenshot("screenshotStart.png", 1);
         
     }
 
@@ -64,13 +64,14 @@ public class Screenshot : MonoBehaviour {
             string timeNow = System.DateTime.Now.ToString("yyyyMMdd_hhmmss");
             print(System.DateTime.Now);
             Application.CaptureScreenshot("_screenshots/screenshot_space_" + timeNow + ".png", 1);
+            textScreenshot.text = "Screenshot caught at " + timeNow;
         }
 
         if (Input.GetKeyDown("return"))
         {
             storeInChore = false;
             shouldStop = false;
-            textScreenshot.text = "Auto-screenshot: one every " + shotRate + " second(s)";
+            textScreenshot.text = "Auto-screenshot: once every " + shotRate + " second(s)";
             StartCoroutine("AutoScreenshot");
         }
 
@@ -86,7 +87,7 @@ public class Screenshot : MonoBehaviour {
         {
             shouldStop = false;
             storeInChore = true;
-            textScreenshot.text = "Auto-screenshot in Choregraphe:\none every " + shotRate + " second(s)";
+            textScreenshot.text = "Auto-screenshot in Choregraphe:\nonce every " + shotRate + " second(s)";
             StartCoroutine("AutoScreenshot");
         }
 
