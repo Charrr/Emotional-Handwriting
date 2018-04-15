@@ -20,9 +20,9 @@ namespace Leap.Unity.DetectionExamples
     {
         public Text textWhichStyle;
 
-        public const int STYLE_TOTAL_NUMBER = 8;
+        public const int STYLE_TOTAL_NUMBER = 9;
 
-        string[] nameStyles = { "01_afraid", "02_amorous", "03_angry", "04_disgusted", "05_happy", "06_sad", "07_serious", "08_surprised" };
+        string[] nameStyles = { "01_afraid", "02_amorous", "03_angry", "04_disgusted", "05_happy", "06_sad", "07_serious", "08_surprised", "09_neutral" };
 
         float[,] styleValues = new float[STYLE_TOTAL_NUMBER, 3]{    // radius, minLength, strength
             {0.00263f,  0.0186f,    -0.299f },    // 01_afraid
@@ -33,7 +33,9 @@ namespace Leap.Unity.DetectionExamples
             {0.00475f,  0.00806f,   0.671f  },    // 05_happy
             {0.00291f,  0.0206f,    -0.581f },    // 06_sad
             {0.00498f,  0.0108f,    0.536f },    // 07_serious
-            {0.00368f,  0.0139f,    0.215f }     // 08_surprised
+            {0.00368f,  0.0139f,    0.215f },     // 08_surprised
+
+            {0.00382f,  0.0145f,    0.082f }     // 09_neutral
         };
 
         /* FEBRUARY VERSION STARTS HERE */
@@ -228,6 +230,7 @@ namespace Leap.Unity.DetectionExamples
             if (Input.GetKeyDown("6")) chooseStyle(6);
             if (Input.GetKeyDown("7")) chooseStyle(7);
             if (Input.GetKeyDown("8")) chooseStyle(8);
+            if (Input.GetKeyDown("9")) chooseStyle(9);
         }
 
 
