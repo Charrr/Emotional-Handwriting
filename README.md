@@ -8,3 +8,4 @@ Functions of this app:
 - Erase by touching the 'erasers' next to your left palm, or pressing delete/backspace.
 
 Screenshot of the interface:
+<div><img src="Emowrite_interface.png" align=left /><div/>
